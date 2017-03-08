@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+    ">
+
+  <context:property-placeholder
+    location="classpath*:/META-INF/spring/*.properties" />
+
+  <bean id="messageSource"
+    class="org.springframework.context.support.ResourceBundleMessageSource">
+    <property name="basenames">
+      <list>
+        <value>i18n/application-messages</value>
+      </list>
+    </property>
+  </bean>
+
+  <!-- Spring Session -->
+  <context:annotation-config />
+  <!-- 
+  <bean
+    class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration" /> -->
+  <!-- <bean class="org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory" 
+    /> -->
+  <!-- <util:constant static-field="org.springframework.session.data.redis.config.ConfigureRedisAction.NO_OP" 
+    /> -->
+
+  <!-- Trial Setting for Spring Session -->
+  <!-- <bean class="org.springframework.security.web.session.HttpSessionEventPublisher" 
+    /> -->
+    <!-- 
+  <bean id="redisConnectionFactory"
+    class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+    <property name="port" value="6379" />
+    <property name="hostName" value="localhost" /> -->
+    <!-- <property name="password" value="${app.redis.password}" /> -->
+    <!-- <property name="usePool" value="true" /> -->
+  <!-- </bean> -->
+
+  <bean
+    class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration" />
+
+  <context:property-placeholder location="classpath:META-INF/spring/application.properties" />
+
+  <bean
+    class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+    p:port="${spring.redis.port}" />
+
+</beans>
