@@ -23,6 +23,7 @@
     <module>springmvc-sample-xml</module>
     <module>springboot-sample-jar</module>
     <module>springmvc-sample-java</module>
+    <module>springboot-thymeleaf-sample-jar</module>
     <module>springmvc-thymeleaf-sample-xml</module>
   </modules>
 
