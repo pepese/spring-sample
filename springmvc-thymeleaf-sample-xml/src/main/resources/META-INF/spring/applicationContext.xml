@@ -18,35 +18,4 @@
     </property>
   </bean>
 
-  <!-- Spring Session -->
-  <context:annotation-config />
-  <!-- 
-  <bean
-    class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration" /> -->
-  <!-- <bean class="org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory" 
-    /> -->
-  <!-- <util:constant static-field="org.springframework.session.data.redis.config.ConfigureRedisAction.NO_OP" 
-    /> -->
-
-  <!-- Trial Setting for Spring Session -->
-  <!-- <bean class="org.springframework.security.web.session.HttpSessionEventPublisher" 
-    /> -->
-    <!-- 
-  <bean id="redisConnectionFactory"
-    class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
-    <property name="port" value="6379" />
-    <property name="hostName" value="localhost" /> -->
-    <!-- <property name="password" value="${app.redis.password}" /> -->
-    <!-- <property name="usePool" value="true" /> -->
-  <!-- </bean> -->
-
-  <bean
-    class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration" />
-
-  <context:property-placeholder location="classpath:META-INF/spring/application.properties" />
-
-  <bean
-    class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
-    p:port="${spring.redis.port}" />
-
 </beans>

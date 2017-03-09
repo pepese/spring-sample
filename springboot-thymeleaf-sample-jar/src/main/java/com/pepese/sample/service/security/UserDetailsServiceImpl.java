@@ -2,9 +2,11 @@ package com.pepese.sample.service.security;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import com.pepese.sample.model.User;
 
+@Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 	
     @Override

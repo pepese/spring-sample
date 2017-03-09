@@ -18,13 +18,6 @@
 
   <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>io.spring.platform</groupId>
-        <artifactId>platform-bom</artifactId>
-        <version>2.0.8.RELEASE</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
       <!-- Spring Session -->
       <dependency>
         <groupId>org.springframework.session</groupId>
@@ -47,17 +40,15 @@
 
     <!-- Spring Security -->
     <dependency>
-      <groupId>org.springframework.security</groupId>
-      <artifactId>spring-security-web</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
-    <dependency>
-      <groupId>org.springframework.security</groupId>
-      <artifactId>spring-security-config</artifactId>
-    </dependency>
-    <!-- Spring Session
+
+    <!-- Spring Session -->
     <dependency>
       <groupId>biz.paluch.redis</groupId>
       <artifactId>lettuce</artifactId>
+      <version>3.5.0.Final</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.session</groupId>
@@ -67,10 +58,6 @@
       <groupId>org.springframework.data</groupId>
       <artifactId>spring-data-redis</artifactId>
     </dependency>
-    <dependency>
-      <groupId>redis.clients</groupId>
-      <artifactId>jedis</artifactId>
-    </dependency> -->
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -82,7 +69,7 @@
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
     </dependency>
-    
+
   </dependencies>
 
   <build>
