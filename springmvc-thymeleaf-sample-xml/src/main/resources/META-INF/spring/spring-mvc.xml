@@ -13,7 +13,6 @@
   <context:property-placeholder
     location="classpath*:/META-INF/spring/*.properties" />
 
-  <!-- <mvc:annotation-driven /> -->
   <mvc:annotation-driven>
     <mvc:argument-resolvers>
       <bean

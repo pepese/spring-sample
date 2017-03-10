@@ -1,34 +1,37 @@
 package com.pepese.sample.controller;
 
 import static org.hamcrest.Matchers.containsString;
-import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.*;
 
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-
-import com.pepese.sample.service.HelloService;
+import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/resources/META-INF/spring/spring-mvc.xml",
-		"file:src/main/resources/META-INF/spring/applicationContext.xml" })
+		"file:src/main/resources/META-INF/spring/applicationContext.xml",
+		"file:src/main/resources/META-INF/spring/spring-security.xml",
+		"file:src/main/resources/META-INF/spring/spring-session.xml" })
 @WebAppConfiguration
 public class HelloControllerTest {
 
 	private MockMvc mvc;
+
+	@Autowired
+	private WebApplicationContext context;
 
 	@Rule
 	public final MockitoRule rule = MockitoJUnit.rule();
@@ -36,17 +39,13 @@ public class HelloControllerTest {
 	@InjectMocks
 	private HelloController helloController;
 
-	@Mock
-	private HelloService helloService;
-
 	@Before
 	public void setup() {
-		mvc = MockMvcBuilders.standaloneSetup(this.helloController).build();
+		mvc = MockMvcBuilders.webAppContextSetup(context).apply(springSecurity()).build();
 	}
 
 	@Test
 	public void testOK() throws Exception {
-		when(this.helloService.sayHello("PePeSe")).thenReturn("Hello, PePeSe !");
-		mvc.perform(get("/")).andExpect(status().isOk()).andExpect(content().string(containsString("Hello, PePeSe !")));
+		mvc.perform(get("/")).andExpect(status().is3xxRedirection());
 	}
 }
