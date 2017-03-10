@@ -7,14 +7,11 @@
     ">
 
   <sec:http pattern="/resources/**" security="none" />
-  
+
   <sec:http>
-    <!-- (1) -->
     <sec:form-login login-page="/login"
       authentication-failure-url="/login?error=true" />
-    <!-- (2) -->
     <sec:logout logout-success-url="/login" delete-cookies="JSESSIONID" />
-    <!-- (3) -->
     <sec:intercept-url pattern="/login" access="permitAll" />
     <sec:intercept-url pattern="/**" access="isAuthenticated()" />
     <sec:logout />
@@ -25,13 +22,9 @@
   <bean id="userDetailsServiceImpl"
     class="com.pepese.sample.service.security.UserDetailsServiceImpl" />
   <sec:authentication-manager>
-    <!-- com.example.security.domain.service.userdetails.SampleUserDetailsService 
-      is scanned by component scan with @Service -->
-    <!-- (4) -->
     <sec:authentication-provider
       user-service-ref="userDetailsServiceImpl">
-      <!-- (5) -->
-      <!-- <sec:password-encoder ref="passwordEncoder" /> -->
+    <!-- <sec:password-encoder ref="passwordEncoder" /> -->
     </sec:authentication-provider>
   </sec:authentication-manager>
 
