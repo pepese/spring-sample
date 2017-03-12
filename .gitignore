@@ -9,6 +9,10 @@ springmvc-sample-xml/target/
 !springboot-sample-war/.mvn/wrapper/maven-wrapper.jar
 !springmvc-sample-xml/.mvn/wrapper/maven-wrapper.jar
 
+### Mac ###
+.DS_Store
+/**/.DS_Store
+
 ### STS ###
 .apt_generated
 .classpath
