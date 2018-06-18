@@ -14,7 +14,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.4.2.RELEASE</version>
+    <version>2.0.3.RELEASE</version>
     <relativePath /> <!-- lookup parent from repository -->
   </parent>
 
@@ -36,30 +36,30 @@
     <maven.compiler.source>${jdk.version}</maven.compiler.source>
     <locales>ja</locales>
     <!-- Plugin versions -->
-    <lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
-    <maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
-    <maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>
+    <!-- <lifecycle-mapping.version>1.0.0</lifecycle-mapping.version> -->
+    <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+    <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
     <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
-    <maven-javadoc-plugin.version>2.10.4</maven-javadoc-plugin.version>
-    <maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version>
+    <maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
+    <!-- <maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version> -->
     <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
-    <versions-maven-plugin.version>2.3</versions-maven-plugin.version>
+    <versions-maven-plugin.version>2.5</versions-maven-plugin.version>
     <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
-    <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
-    <maven-war-plugin.version>3.0.0</maven-war-plugin.version>
+    <maven-jar-plugin.version>3.1.0</maven-jar-plugin.version>
+    <maven-war-plugin.version>3.2.2</maven-war-plugin.version>
     <build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>
     <sql-maven-plugin.version>1.5</sql-maven-plugin.version>
     <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
-    <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
-    <jacoco-maven-plugin.version>0.7.9</jacoco-maven-plugin.version>
-    <maven-site-plugin.version>3.6</maven-site-plugin.version>
-    <maven-surefire-report-plugin.version>2.19.1</maven-surefire-report-plugin.version>
+    <maven-surefire-plugin.version>2.22.0</maven-surefire-plugin.version>
+    <jacoco-maven-plugin.version>0.8.1</jacoco-maven-plugin.version>
+    <maven-site-plugin.version>3.7.1</maven-site-plugin.version>
+    <maven-surefire-report-plugin.version>2.22.0</maven-surefire-report-plugin.version>
     <maven-jxr-plugin.version>2.5</maven-jxr-plugin.version>
-    <maven-pmd-plugin.version>3.7</maven-pmd-plugin.version>
+    <maven-pmd-plugin.version>3.10.0</maven-pmd-plugin.version>
     <!-- Java8未対応のためコメントアウト -->
     <!-- <javancss-maven-plugin.version>2.1</javancss-maven-plugin.version> -->
-    <maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>
-    <findbugs-maven-plugin.version>3.0.4</findbugs-maven-plugin.version>
+    <maven-checkstyle-plugin.version>3.0.0</maven-checkstyle-plugin.version>
+    <findbugs-maven-plugin.version>3.0.5</findbugs-maven-plugin.version>
     <maven-project-info-reports-plugin.version>2.9</maven-project-info-reports-plugin.version>
   </properties>
 
@@ -69,6 +69,7 @@
       <plugins>
         <!--This plugin's configuration is used to store Eclipse m2e settings
           only. It has no influence on the Maven build itself. -->
+        <!--
         <plugin>
           <groupId>org.eclipse.m2e</groupId>
           <artifactId>lifecycle-mapping</artifactId>
@@ -98,6 +99,7 @@
             </lifecycleMappingMetadata>
           </configuration>
         </plugin>
+        -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
@@ -139,6 +141,7 @@
             </execution>
           </executions>
         </plugin>
+        <!--
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-eclipse-plugin</artifactId>
@@ -147,10 +150,10 @@
             <downloadSources>true</downloadSources>
             <downloadJavadocs>true</downloadJavadocs>
             <additionalConfig>
-              <!-- -->
             </additionalConfig>
           </configuration>
         </plugin>
+        -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-deploy-plugin</artifactId>
@@ -410,7 +413,7 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
       </plugin>
-      <!-- Java8未対応のためコメントアウト -->
+      <!-- Java8以降未対応のためコメントアウト -->
       <!-- <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>javancss-maven-plugin</artifactId>

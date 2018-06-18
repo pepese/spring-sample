@@ -13,6 +13,13 @@ springmvc-sample-xml/target/
 .DS_Store
 /**/.DS_Store
 
+### VS Code ###
+.vscode
+springboot-sample-jar/.vscode
+springmvc-sample-java/.vscode
+springboot-sample-war/.vscode
+springmvc-sample-xml/.vscode
+
 ### STS ###
 .apt_generated
 .classpath
