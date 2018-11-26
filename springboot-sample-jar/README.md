@@ -30,6 +30,17 @@ Spring Boot 1.4.2.RELEASEで動確した。
 - src/main/java/com/pepese/sample/service/HelloService.java
   - DIなどの動作確認用のサービスクラス
 
+# 実行
+
+```bash
+$ mvn clean package -Dmaven.test.skip=true
+$ docker build .
+$ kubectl run springboot --image=a1800de8996f --image-pull-policy=Never
+$ kubectl expose deployment springboot --port 8000 --type LoadBalancer
+```
+
+ローカルのイメージを拾えない？？
+
 # 参考
 
 http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html

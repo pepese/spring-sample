@@ -1,4 +1,4 @@
-FROM openjdk:10.0.1
+FROM openjdk:11.0.1
 VOLUME /tmp
 ADD target/springboot-sample-jar.jar app.jar
 ENV JAVA_OPTS=""
