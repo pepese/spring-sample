@@ -32,14 +32,28 @@ Spring Boot 1.4.2.RELEASEで動確した。
 
 # 実行
 
+Docker 単体で実行。
+
 ```bash
 $ mvn clean package -Dmaven.test.skip=true
 $ docker build .
-$ kubectl run springboot --image=a1800de8996f --image-pull-policy=Never
-$ kubectl expose deployment springboot --port 8000 --type LoadBalancer
+$ docker images
+REPOSITORY                                 TAG                 IMAGE ID            CREATED             SIZE
+<none>                                     <none>              a1800de8996f        11 hours ago        987MB
+$ docker run -d -p 8000:8000 --name springboot a1800de8996f
+$ curl localhost:8000
+Hello, PePeSe !
 ```
 
-ローカルのイメージを拾えない？？
+k8s で実行。  
+ローカルイメージ拾えないから動かないので、プライベード Docker レジストリ `localhost:5000/pepese/springboot:1.0.0` にあるテイで書く。
+
+```bash
+$ kubectl run springboot --image=localhost:5000/pepese/springboot:1.0.0
+$ kubectl expose deployment springboot --port 8000 --type LoadBalancer
+$ curl localhost:8000
+Hello, PePeSe !
+```
 
 # 参考
 
